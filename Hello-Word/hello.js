@@ -1,3 +1,2 @@
-console.log('hey there i am js');
-console.log(2+5);
-
+const math = require("fs")
+console.log('math value is' , math);
