@@ -31,4 +31,6 @@ fs.appendFileSync('./test.txt' , `${Date.now()}hey there\n` )
 console.log(fs.statSync('./test.txt'));
 
 
+
+
 fs.mkdirSync('my-docs')
