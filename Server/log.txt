@@ -1,17 +1,7 @@
-1773776045032: / New request Recieved
-1773776085651: /about New request Recieved
-1773776166068: /about?myname=haris New request Recieved
-1773776668702: /about?myname=haris New request Recieved
-1773776762738: /about?myname=haris&userid=1 New request Recieved
-1773776901672: /about?myname=haris&userid=1 New request Recieved
-1773777135781: /about?myname=haris&userid=1 New request Recieved
-1773777185099: /about?myname=haris&userid=1 New request Recieved
-1773777208423: /about?myname=haris&userid=1&search=dog New request Recieved
-1773777429040: /about?myname=haris&userid=1&search=dog New request Recieved
-1773777443603: /about?myname=john&userid=1&search=dog New request Recieved
-1773777709349: /about?myname=john&userid=1&search=dog New request Recieved
-1773777720717: /about?search=john&userid=1&search=dog New request Recieved
-1773777736426: /about?search_query=john&userid=1&search=dog New request Recieved
-1773777805212: /about?search_query=john&userid=1&search=dog New request Recieved
-1773777815285: /about?search=john&userid=1&search=dog New request Recieved
-1773777882820: /search?search_query=javascript+tic+toe+game New request Recieved
+
+1773848252190: GET / New request Recieved
+1773848347227: GET / New request Recieved
+1773848378181: GET /about New request Recieved
+1773848878560: GET / New request Recieved
+1773848885630: GET /signup New request Recieved
+1773848984224: GET /signup New request Recieved
