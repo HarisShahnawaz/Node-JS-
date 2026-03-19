@@ -3,7 +3,7 @@ const express = require('express')
 const app = express();
 
 app.get('/', (req,res)=>{
-    res.send('Hello from home page' )
+    res.send('Hello from home page haris' )
 })
 app.get('/about', (req,res)=>{
     res.send(`hello ${req.query.name}`)
