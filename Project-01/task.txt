@@ -1,0 +1,8 @@
+REST API - JSON
+
+
+
+GET /users - List All users
+
+GET /users/1   get the user with ID 1
+GET /users/1    get the user with ID 2
