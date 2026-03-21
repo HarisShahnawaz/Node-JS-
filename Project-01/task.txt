@@ -6,3 +6,12 @@ GET /users - List All users
 
 GET /users/1   get the user with ID 1
 GET /users/1    get the user with ID 2
+
+
+POST /users   create new user
+
+
+PATCH  /user/1  edit the user with id 1
+
+
+DELETE  /user/1   delete the user with ID 1
