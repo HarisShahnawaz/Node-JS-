@@ -6,11 +6,13 @@ GET /api/users - List All users -DONE
 
 
 
-GET   /api/users/1   get the user with ID 1
-GET   /api/users/2   get the user with ID 2
+GET   /api/users/1   get the user with ID 1    -DONE
+GET   /api/users/2   get the user with ID 2     -DONE
  DYNAMIC PATH PARAMETRES
  GET     /api/users/:id 
-    :id -> variable       | dynamic
+    :id -> variable       | dynamic            -DONE
+
+
 
 POST   /api/users   create new user
 
