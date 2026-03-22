@@ -11,12 +11,9 @@ const PORT = 8000;
 app.use(express.urlencoded({extended: false}))
 app.use(express.json())
 app.use((req,res, next)=> {
-     console.log("Hello from middleware 1");
-      next();
-})
-app.use((req,res, next)=> {
-     console.log("Hello from middleware 2");
-      return res.end("hey")
+    fs.appendFile('.log.txt', `\n${Date.now()}: ${req.ip} ${req.method}: ${req.path}`, (req,res)=>{
+     next();
+    })
 })
 
 
