@@ -4,3 +4,4 @@
 1774195976610: GET: /api/users/222
 1774196032823: POST: /api/users
 1774196126223: ::1 POST: /api/users
+1774196126223: ::1 POST: /api/users
