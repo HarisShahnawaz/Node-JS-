@@ -1,6 +1,7 @@
  const users = require("./MOCK_DATA.json")
  const fs = require("fs")
-const express = require('express')
+const express = require('express');
+const { log } = require("console");
 
 const app = express();
 const PORT = 8000;
@@ -9,7 +10,14 @@ const PORT = 8000;
 
 app.use(express.urlencoded({extended: false}))
 app.use(express.json())
-
+app.use((req,res, next)=> {
+     console.log("Hello from middleware 1");
+      next();
+})
+app.use((req,res, next)=> {
+     console.log("Hello from middleware 2");
+      return res.end("hey")
+})
 
 
 // Routes
@@ -36,7 +44,7 @@ app.route('/api/users/:id')
 .patch((req, res) => {
     const id = Number(req.params.id);
     const body = req.body;
-
+      
     const user = users.find(u => u.id === id);
 
     Object.assign(user, body);
