@@ -74,9 +74,18 @@ app.route('/api/users/:id')
 app.post("/api/users" , (req,res)=> {
    
     const body = req.body;
+   if (
+    !body?.first_name?.trim() || 
+    !body?.last_name?.trim() || 
+    !body?.email?.trim() || 
+    !body?.gender || 
+    !body?.job_title
+) {
+    return res.status(400).json({ msg: 'All fields are required and cannot be empty' });
+}
     users.push({ ...body, id: users.length + 1});
     fs.writeFile("./MOCK_DATA.json", JSON.stringify(users), (err,data)=>{
-       return res.json({status : "success", id: users.length })
+       return res.status(201).json({status : "success", id: users.length })
     })    
 })
 
