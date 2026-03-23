@@ -39,6 +39,8 @@ app.route('/api/users/:id')
 .get((req,res)=> {
      const id = Number(req.params.id)
      const user = users.find((user)=> user.id===id)
+     if(!user)
+        return res.status(404).json({error:'user not found'})
      return res.json(user)
 })
 .patch((req, res) => {
