@@ -30,6 +30,9 @@ app.get('/users' , (req,res)=> {
 // REST API
 
 app.get("/api/users", (req,res)=> {
+    res.setHeader("X-myName", "Haris") //custom headers
+
+    //always add X to custom headers
      return  res.json(users)
 })
 app.route('/api/users/:id')
