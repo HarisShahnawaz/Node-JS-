@@ -1,10 +1,45 @@
  const users = require("./MOCK_DATA.json")
  const fs = require("fs")
+ const mongoose = require('mongoose')
 const express = require('express');
 const { log } = require("console");
+const { type } = require("os");
 
 const app = express();
 const PORT = 8000;
+// Connection
+
+mongoose.connect("mongodb://127.0.0.1:27017/my-app-1")
+.then(()=> console.log("MongoDB Connected"))
+.catch((err)=> console.log("Mongo error", err));
+
+
+// mongodb Schema
+
+const userSchema = new mongoose.Schema({
+         firstName:{
+          type: String,
+          required: true,
+         },
+         lastName:{
+          type: String,
+         },
+         email:{
+           type: String,
+          required: true,
+          unique: true,
+         },
+         jobTitle:{
+            type: String,
+         },
+         gender:{
+             type:String,
+         }
+},{timestamps: true});
+
+// mongdb Model
+
+const User = mongoose.model('user', userSchema)
 
 // Middleware ''''' plugin
 
@@ -73,7 +108,7 @@ app.route('/api/users/:id')
 
 
 
-app.post("/api/users" , (req,res)=> {
+app.post("/api/users" , async (req,res)=> {
    
     const body = req.body;
    if (
@@ -85,11 +120,24 @@ app.post("/api/users" , (req,res)=> {
 ) {
     return res.status(400).json({ msg: 'All fields are required and cannot be empty' });
 }
-    users.push({ ...body, id: users.length + 1});
-    fs.writeFile("./MOCK_DATA.json", JSON.stringify(users), (err,data)=>{
-       return res.status(201).json({status : "success", id: users.length })
-    })    
-})
+
+   const result =  await User.create(
+        {
+            firstName : body.first_name,
+            lastName : body.last_name,
+            email: body.email,
+            gender: body.gender,
+            jobTitle: body.job_title
+        });
+        
+        return res.status(201).json({msg: "success"})
+        
+    // users.push({ ...body, id: users.length + 1});
+    // fs.writeFile("./MOCK_DATA.json", JSON.stringify(users), (err,data)=>{
+    //    return res.status(201).json({status : "success", id: users.length })
+    // })               this was for mock data json, now for mongodb we dont need these
+});
+
 
 
 
