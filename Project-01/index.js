@@ -1,5 +1,4 @@
- const users = require("./MOCK_DATA.json")
- const fs = require("fs")
+const fs = require("fs")
  const mongoose = require('mongoose')
 const express = require('express');
 const { log } = require("console");
@@ -54,54 +53,37 @@ app.use((req,res, next)=> {
 
 // Routes
 
-app.get('/users' , (req,res)=> {
+app.get('/users' , async (req,res)=> {
+    const allDBUsers =  await User.find({});
     const html =
     ` <ul>
-      ${users.map(user => `<li>${user.first_name}</li>`).join("")}
+      ${allDBUsers.map(user => `<li>${user.firstName} - ${user.email}</li>`).join("")}
     </ul>
     `
     return res.send(html)
 })
 // REST API
 
-app.get("/api/users", (req,res)=> {
-    res.setHeader("X-myName", "Haris") //custom headers
-
-    //always add X to custom headers
-     return  res.json(users)
+app.get("/api/users", async (req,res)=> {
+     const allDBUsers =  await User.find({});             // res.setHeader("X-myName", "Haris") //custom header                                            
+     return  res.json(allDBUsers)                          // //always add X to custom headers (these were custom headers)
 })
-app.route('/api/users/:id')
-.get((req,res)=> {
-     const id = Number(req.params.id)
-     const user = users.find((user)=> user.id===id)
+app
+.route('/api/users/:id')
+.get( async(req,res)=> {
+     const user = await User.findById(req.params.id);
      if(!user)
         return res.status(404).json({error:'error1 :  user not found '})
      return res.json(user)
 })
-.patch((req, res) => {
-    const id = Number(req.params.id);
-    const body = req.body;
+.patch( async (req, res) => {
+      await  User.findByIdAndUpdate(req.params.id , { lastName: "changed"});
+      return res.json({status:"success"});
       
-    const user = users.find(u => u.id === id);
-
-    Object.assign(user, body);
-
-
-    fs.writeFile("./MOCK_DATA.json", JSON.stringify(users), () => {
-        return res.json({ status: "success" });
-    });
-    console.log(req.body);
 })
-.delete((req, res) => {
-    const id = Number(req.params.id);
-
-    const updatedUsers = users.filter(u => u.id !== id);
-    users.length = 0;
-    users.push(...updatedUsers);
-
-    fs.writeFile("./MOCK_DATA.json", JSON.stringify(users), () => {
-        return res.json({ status: "success" });
-    });
+.delete( async (req, res) => {
+       await User.findByIdAndDelete(req.params.id)
+       return res.json({status:"success"});
 })
 
 
