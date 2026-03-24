@@ -117,7 +117,7 @@ app.post("/api/users" , async (req,res)=> {
     // users.push({ ...body, id: users.length + 1});
     // fs.writeFile("./MOCK_DATA.json", JSON.stringify(users), (err,data)=>{
     //    return res.status(201).json({status : "success", id: users.length })
-    // })               this was for mock data json, now for mongodb we dont need these
+    // })           this was for mock data json file , now for mongodb we dont need these lines of code
 });
 
 

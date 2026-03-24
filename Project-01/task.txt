@@ -1,4 +1,12 @@
 REST API - JSON
+RESTful API — it's a way for two applications to communicate over the internet using HTTP.
+It uses standard HTTP methods:
+
+GET — fetch data
+POST — create data
+PUT/PATCH — update data
+DELETE — delete data
+
 
 
 GET /users HTML DOCUMENT RENDOR
