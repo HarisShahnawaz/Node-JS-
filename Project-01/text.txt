@@ -2,7 +2,7 @@ Schema - Define The Structure
       Schema - Model
       Using Model we do CRUD Operation 
       
-
+       three steps 
       1.connection,
       2.schema
       3.model

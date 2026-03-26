@@ -100,7 +100,7 @@ app.post("/api/users" , async (req,res)=> {
     !body?.gender || 
     !body?.job_title
 ) {
-    return res.status(400).json({ msg: 'All fields are required and cannot be empty' });
+    return res.status(400).json({ msg: 'Msg: All fields are required and cannot be empty' });
 }
 
    const result =  await User.create(
