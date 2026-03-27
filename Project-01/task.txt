@@ -21,11 +21,12 @@ GET   /api/users/2   get the user with ID 2     -DONE
     :id -> variable       | dynamic            -DONE
 
 
-
-POST   /api/users   create new user
-
-
-PATCH   /api /user/1  edit the user with id 1
+ 
+POST   /api/users   create new user               -DONE
 
 
-DELETE   /api/user/1   delete the user with ID 1
+PATCH   /api /user/1  edit the user with id 1             -DONE
+
+
+DELETE   /api/user/1   delete the user with ID 1             -DONE
+
