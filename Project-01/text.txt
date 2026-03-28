@@ -7,3 +7,14 @@ Schema - Define The Structure
       2.schema
       3.model
       
+      
+      
+Schema - Define The Structure
+      Schema - Model
+      Using Model we do CRUD Operation 
+      
+       three steps of mongoose : 
+      1.connection,
+      2.schema
+      3.model
+      
