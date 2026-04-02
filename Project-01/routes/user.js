@@ -1,20 +1,15 @@
 const express = require('express');
 
 const router = express.Router();
+const {handleGetAllUsers, handleGetUserById}  = require('../controllers/user');
 
 
+router.get("/", handleGetAllUsers);
 
-router.get("/", async (req,res)=> {
-                              // //always add X to custom headers (these were custom headers)
-})
+
 router
 .route('/:id')
-.get( async(req,res)=> {
-     const user = await User.findById(req.params.id);
-     if(!user)
-        return res.status(404).json({error:'error1 :  user not found '})
-     return res.json(user)
-})
+.get( handleGetUserById)
 .patch( async (req, res) => {
       await  User.findByIdAndUpdate(req.params.id , { lastName: "changed"});
       return res.json({status:"success"});
