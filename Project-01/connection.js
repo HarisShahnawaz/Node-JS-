@@ -2,7 +2,7 @@
 
  async function connectMongoDB(url) {
     return
-    mongoose.connect("url");
+    mongoose.connect(url);
  }
 
  module.exports ={

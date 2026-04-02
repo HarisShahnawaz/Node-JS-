@@ -5,8 +5,7 @@ const router = express.Router();
 
 
 router.get("/", async (req,res)=> {
-     const allDBUsers =  await User.find({});             // res.setHeader("X-myName", "Haris") //custom header                                            
-     return  res.json(allDBUsers)                          // //always add X to custom headers (these were custom headers)
+                              // //always add X to custom headers (these were custom headers)
 })
 router
 .route('/:id')
