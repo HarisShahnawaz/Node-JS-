@@ -1,0 +1,18 @@
+
+1775140337679: ::1 GET: /api/users
+
+1775140376009: ::1 GET: /api/users
+
+1775140403557: ::1 GET: /api/users
+
+1775140462154: ::1 GET: /api/users
+
+1775140943588: ::1 GET: /api/users
+
+1775141026201: ::1 POST: /api/users
+
+1775143027972: ::1 POST: /api/users
+
+1775143107866: ::1 GET: /api/users/69ce887358d408ccdc6d8a54
+
+1775143181115: ::1 DELETE: /api/users/69c2a528efd5218f08b024c2
