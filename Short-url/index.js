@@ -11,6 +11,10 @@ connecttoMongoDB("mongodb://localhost:27017/short-url").then(() => {
 
 app.use(express.json());
 
+app.get('/test', (req,res)=> {
+  return  res.end("<h1>Hey from server</h1>");
+})
+
 app.get('/:shortId', async (req,res)=>{
     const shortId = req.params.shortId;
   const entry =  await URL.findOneAndUpdate({
