@@ -11,11 +11,19 @@ connecttoMongoDB("mongodb://localhost:27017/short-url").then(() => {
 
 app.use(express.json());
 
-app.get('/test', (req,res)=> {
-  return  res.end("<h1>Hey from server</h1>");
+app.get('/test', async (req,res)=> {
+    const allUrls =  await URL.find({});
+  return  res.end(`<html>
+                    <head></head>
+                    <body>
+                    <ol>
+                    ${allUrls.map(url => `<li>${url.redirectUrl} - ${url.shortId} - ${url.visitHistory.length}</li>`).join('')}
+                    </ol>
+                    </body>
+                   </html>`);
 })
 
-app.get('/:shortId', async (req,res)=>{
+app.get('/url/:shortId', async (req,res)=>{
     const shortId = req.params.shortId;
   const entry =  await URL.findOneAndUpdate({
       shortId,
