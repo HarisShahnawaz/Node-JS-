@@ -16,10 +16,7 @@ app.set('views', path.resolve('./views'));
 
 app.use(express.json());
 
-app.get('/test', async (req,res)=> {
-    const allUrls =  await URL.find({});
-  return  res.render("home" , {urls: allUrls,});
-});
+
 
 app.use("/url", urlRoute);
 
